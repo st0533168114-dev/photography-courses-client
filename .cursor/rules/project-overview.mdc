@@ -1,0 +1,32 @@
+---
+description: מבנה הפרויקט, ארכיטקטורה, סגנון קוד ומוסכמות שמות
+alwaysApply: true
+---
+
+# client – מדריך פרויקט
+
+## טכנולוגיות
+React 19, Vite 8, Redux Toolkit, React Router v7, Axios, CSS Modules, Swiper, ESLint. JavaScript בלבד (`.jsx`/`.js`).
+
+## מבנה תיקיות
+- `src/pages/` – דפים (`*Page.jsx`), כולל `admin/`
+- `src/components/` – רכיבים לשימוש חוזר
+- `src/layout/` – Header, Footer
+- `src/API/` – `axiosConfig.js` + קבצי `*Api.js`
+- `src/redux/store.js` + `slices/*Slice.js` – state גלובלי
+- `src/CSS/pages|components|layout/` – `*.module.css` תואם לרכיב
+- `src/styles/variables.css`, `index.css` – עיצוב גלובלי
+- `public/` – נכסים סטטיים; `main.jsx` – נקודת כניסה
+
+## ארכיטקטורה
+- SPA: `BrowserRouter` + Routes ב-`App.jsx`; `checkAuth` בטעינה
+- זרימה: API → `createAsyncThunk` בסלייס → דפים/רכיבים עם `useSelector`/`useDispatch`
+- Axios משותף; Bearer token מ-`localStorage` דרך interceptor
+- שרת: `http://localhost:1234`; מזהי MongoDB: `_id`
+
+## סגנון קוד ושמות
+- רכיבים: `export default function Xxx()`; דפים עוטפים Header + `<main>` + Footer
+- CSS Modules: `import styles from "../CSS/..."`
+- Thunks: `"domain/action"`; סלייסים: `initialState`, `reducers`, `extraReducers`
+- שמות: PascalCase לרכיבים/דפים, camelCase+`Api`/`Slice` לקבצי לוגיקה
+- ממשק והערות בקוד בעברית; שמור על מוסכמות קיימות (למשל `WellcomeSection`, `/ShoppingCartPage`)
