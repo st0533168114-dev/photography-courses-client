@@ -1,23 +1,22 @@
-import api from "./axiosConfig"; // שונה
+import api from "./axiosConfig";
 
-const API_URL = "http://localhost:1234";
 export const getCourses = async () => {
-  const response = await api.get(`${API_URL}/courses`); // שונה
+  const response = await api.get(`/courses`);
   return response.data;
 };
 export const getCourseById = async (courseId) => {
-  const response = await api.get(`${API_URL}/courses/${courseId}`); // שונה
+  const response = await api.get(`/courses/${courseId}`);
   return response.data;
 };
 export const addCourse = async (course) => {
-  const response = await api.post(`${API_URL}/courses`, course); // שונה
+  const response = await api.post(`/courses`, course);
   return response.data;
 };
 export const updateCourse = async (courseId, courseToUpdate) => {
-  const response = await api.put(`${API_URL}/courses/${courseId}`, courseToUpdate); // שונה
+  const response = await api.put(`/courses/${courseId}`, courseToUpdate);
   return response.data;
 };
 export const deleteCourse = async (courseId) => {
-  const response = await api.delete(`${API_URL}/courses/${courseId}`); // שונה
+  const response = await api.delete(`/courses/${courseId}`);
   return response.data;
 };

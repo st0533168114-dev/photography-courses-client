@@ -1,7 +1,9 @@
 import axios from "axios";
 
 // יצירת מופע מותאם אישית של אקסיוס לעבודה נוחה מול השרת
-const api = axios.create();
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
 
 // הגדרת אינטרספטור - פונקציה שתופסת כל בקשה רגע לפני שהיא נשלחת לשרת
 api.interceptors.request.use(

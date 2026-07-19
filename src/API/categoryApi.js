@@ -1,23 +1,22 @@
-import api from "./axiosConfig"; // שונה
+import api from "./axiosConfig";
 
-const API_URL = "http://localhost:1234";
 export const getCategories = async () => {
-  const response = await api.get(`${API_URL}/categories`); // שונה
+  const response = await api.get(`/categories`);
   return response.data;
 };
 export const getCategoryById = async (categoryId) => {
-  const response = await api.get(`${API_URL}/categories/${categoryId}`); // שונה
+  const response = await api.get(`/categories/${categoryId}`);
   return response.data;
 };
 export const addCategory = async (category) => {
-  const response = await api.post(`${API_URL}/categories`, category); // שונה
+  const response = await api.post(`/categories`, category);
   return response.data;
 };
 export const updateCategory = async (categoryId, categoryToUpdate) => {
-  const response = await api.put(`${API_URL}/categories/${categoryId}`, categoryToUpdate); // שונה
+  const response = await api.put(`/categories/${categoryId}`, categoryToUpdate);
   return response.data;
 };
 export const deleteCategory = async (categoryId) => {
-  const response = await api.delete(`${API_URL}/categories/${categoryId}`); // שונה
+  const response = await api.delete(`/categories/${categoryId}`);
   return response.data;
 };
