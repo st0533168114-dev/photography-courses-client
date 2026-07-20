@@ -32,8 +32,21 @@ export default function CourseDetailsPage() {
         <div className={styles.description}>
           {course.courseDescription}
         </div>
-        <div className={styles.content}>
-          {course.courseContent}
+        <div className={styles.contentSection}>
+          {/* כותרת תוכן הקורס */}
+          <h3 className={styles.contentTitle}>תוכן הקורס:</h3>
+          {/* מציג את תוכן הקורס כרשימה */}
+          <ul className={styles.contentList}>
+            {Array.isArray(course.courseContent) ? (
+              course.courseContent.map((item, index) => (
+                <li key={index} className={styles.contentItem}>
+                  {item}
+                </li>
+              ))
+            ) : (
+              <li className={styles.contentItem}>{course.courseContent}</li>
+            )}
+          </ul>
         </div>
         <AddToCartButton courseId={course._id} />
       </main>
