@@ -1,38 +1,38 @@
 # Photography Courses – Client
 
-אפליקציית **React** חד-עמודית (SPA) לאתר מכירת קורסי צילום דיגיטליים. המשתמש יכול לגלוש בקטגוריות ובקורסים, להירשם ולהתחבר, להוסיף קורסים לעגלת קניות, לבצע הזמנה ותשלום, ולצפות בקורסים שרכש. קיים גם אזור ניהול (Admin) לניהול תוכן.
+A single-page **React** application (SPA) for a digital photography courses sales website. Users can browse categories and courses, register and log in, add courses to a shopping cart, complete orders and payments, and view their purchased courses. An admin area is also available for content management.
 
-## חיבור לשרת (Backend)
+## Backend Connection
 
-הפרויקט הוא צד לקוח בלבד ומתממשק מול שרת **Node.js / Express** נפרד דרך REST API (כתובת השרת מוגדרת במשתנה סביבה `VITE_API_URL`).
+This project is client-side only and interacts with a separate **Node.js / Express** server via a REST API (the server address is defined in the `VITE_API_URL` environment variable).
 
-- קישור ל-Repository של השרת: `<הוסף כאן קישור>`
+- Link to the Backend Repository: `<add link here>`
 
-## טכנולוגיות (Tech Stack)
+## Tech Stack
 
-| טכנולוגיה | גרסה | תפקיד |
+| Technology | Version | Role |
 |---|---|---|
-| React | 19.x | ספריית UI |
-| Vite | 8.x | כלי build וסביבת פיתוח |
-| Redux Toolkit | 2.x | ניהול מצב גלובלי |
-| React Redux | 9.x | חיבור Redux לרכיבי React |
-| React Router DOM | 7.x | ניתוב בין עמודים |
-| Axios | 1.x | קריאות HTTP לשרת |
-| Swiper | 14.x | קרוסלות/סליידרים |
-| CSS Modules | – | עיצוב מבודד לכל רכיב/עמוד |
-| ESLint | 10.x | בדיקת איכות קוד |
+| React | 19.x | UI Library |
+| Vite | 8.x | Build Tool and Development Environment |
+| Redux Toolkit | 2.x | Global State Management |
+| React Redux | 9.x | React Bindings for Redux |
+| React Router DOM | 7.x | Routing |
+| Axios | 1.x | HTTP Requests |
+| Swiper | 14.x | Carousels / Sliders |
+| CSS Modules | – | Component-scoped Styling |
+| ESLint | 10.x | Code Quality and Linting |
 
-## משתני סביבה
+## Environment Variables
 
-יש ליצור קובץ `.env` בתיקיית `client/` עם המשתנה הבא:
+Create a `.env` file in the `client/` directory with the following variable:
 
 ```
-VITE_API_URL=<כתובת בסיס של השרת, לדוגמה http://localhost:1234>
+VITE_API_URL=<server base URL, e.g. http://localhost:1234>
 ```
 
-המשתנה נצרך בקובץ [src/API/axiosConfig.js](src/API/axiosConfig.js) כ-`baseURL` עבור כל קריאות ה-API.
+This variable is consumed in [src/API/axiosConfig.js](src/API/axiosConfig.js) as the `baseURL` for all API calls.
 
-## התקנה והרצה מקומית
+## Installation and Local Setup
 
 ```bash
 git clone <repository-url>
@@ -41,12 +41,12 @@ npm install
 npm run dev
 ```
 
-האפליקציה תרוץ בכתובת שמציג Vite בטרמינל (בדרך כלל `http://localhost:5173`).
+The application will run at the address displayed by Vite in the terminal (usually `http://localhost:5173`).
 
-## בנייה לפרודקשן
+## Building for Production
 
 ```bash
 npm run build
 ```
 
-הפקודה מייצרת גרסת production אופטימלית (minified) בתיקיית `dist/`, המוכנה לפריסה (deploy) על שרת סטטי.
+This command generates an optimized, minified production build in the `dist/` directory, ready for deployment on a static server.
