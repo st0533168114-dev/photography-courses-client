@@ -1,16 +1,52 @@
-# React + Vite
+# Photography Courses – Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+אפליקציית **React** חד-עמודית (SPA) לאתר מכירת קורסי צילום דיגיטליים. המשתמש יכול לגלוש בקטגוריות ובקורסים, להירשם ולהתחבר, להוסיף קורסים לעגלת קניות, לבצע הזמנה ותשלום, ולצפות בקורסים שרכש. קיים גם אזור ניהול (Admin) לניהול תוכן.
 
-Currently, two official plugins are available:
+## חיבור לשרת (Backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+הפרויקט הוא צד לקוח בלבד ומתממשק מול שרת **Node.js / Express** נפרד דרך REST API (כתובת השרת מוגדרת במשתנה סביבה `VITE_API_URL`).
 
-## React Compiler
+- קישור ל-Repository של השרת: `<הוסף כאן קישור>`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## טכנולוגיות (Tech Stack)
 
-## Expanding the ESLint configuration
+| טכנולוגיה | גרסה | תפקיד |
+|---|---|---|
+| React | 19.x | ספריית UI |
+| Vite | 8.x | כלי build וסביבת פיתוח |
+| Redux Toolkit | 2.x | ניהול מצב גלובלי |
+| React Redux | 9.x | חיבור Redux לרכיבי React |
+| React Router DOM | 7.x | ניתוב בין עמודים |
+| Axios | 1.x | קריאות HTTP לשרת |
+| Swiper | 14.x | קרוסלות/סליידרים |
+| CSS Modules | – | עיצוב מבודד לכל רכיב/עמוד |
+| ESLint | 10.x | בדיקת איכות קוד |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## משתני סביבה
+
+יש ליצור קובץ `.env` בתיקיית `client/` עם המשתנה הבא:
+
+```
+VITE_API_URL=<כתובת בסיס של השרת, לדוגמה http://localhost:1234>
+```
+
+המשתנה נצרך בקובץ [src/API/axiosConfig.js](src/API/axiosConfig.js) כ-`baseURL` עבור כל קריאות ה-API.
+
+## התקנה והרצה מקומית
+
+```bash
+git clone <repository-url>
+cd client
+npm install
+npm run dev
+```
+
+האפליקציה תרוץ בכתובת שמציג Vite בטרמינל (בדרך כלל `http://localhost:5173`).
+
+## בנייה לפרודקשן
+
+```bash
+npm run build
+```
+
+הפקודה מייצרת גרסת production אופטימלית (minified) בתיקיית `dist/`, המוכנה לפריסה (deploy) על שרת סטטי.
