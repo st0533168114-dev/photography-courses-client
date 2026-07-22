@@ -1,7 +1,7 @@
 import api from "./axiosConfig";
 
 export const getPayments = async () => {
-  const response = await api.get(`/payments `);
+  const response = await api.get(`/payments`);
   return response.data;
 };
 export const getPaymentById = async (paymentId) => {
