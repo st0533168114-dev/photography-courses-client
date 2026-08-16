@@ -6,7 +6,7 @@ A single-page **React** application (SPA) for a digital photography courses sale
 
 This project is client-side only and interacts with a separate **Node.js / Express** server via a REST API (the server address is defined in the `VITE_API_URL` environment variable).
 
-- Link to the Backend Repository: `Photography Courses Server`
+- Link to the Backend Repository: `https://github.com/st0533168114-dev/photography-courses-server`
 
 ## Tech Stack
 
