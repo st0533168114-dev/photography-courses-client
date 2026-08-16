@@ -1,52 +1,47 @@
-# Photography Courses – Client
+# Mirela Cohen - Photography Courses | Client
 
-A single-page **React** application (SPA) for a digital photography courses sales website. Users can browse categories and courses, register and log in, add courses to a shopping cart, complete orders and payments, and view their purchased courses. An admin area is also available for content management.
+React (SPA) application for a digital photography courses sales website. Includes a course and category catalog, registration and login, shopping cart, order placement and payments, viewing purchased courses, and an admin management panel.
 
-## Backend Connection
+## Technologies
 
-This project is client-side only and interacts with a separate **Node.js / Express** server via a REST API (the server address is defined in the `VITE_API_URL` environment variable).
+React 19 · Vite · Redux Toolkit · React Router v7 · Axios · CSS Modules · Swiper
 
-- Link to the Backend Repository: `<add link here>`
-
-## Tech Stack
-
-| Technology | Version | Role |
-|---|---|---|
-| React | 19.x | UI Library |
-| Vite | 8.x | Build Tool and Development Environment |
-| Redux Toolkit | 2.x | Global State Management |
-| React Redux | 9.x | React Bindings for Redux |
-| React Router DOM | 7.x | Routing |
-| Axios | 1.x | HTTP Requests |
-| Swiper | 14.x | Carousels / Sliders |
-| CSS Modules | – | Component-scoped Styling |
-| ESLint | 10.x | Code Quality and Linting |
-
-## Environment Variables
-
-Create a `.env` file in the `client/` directory with the following variable:
-
-```
-VITE_API_URL=<server base URL, e.g. http://localhost:1234>
-```
-
-This variable is consumed in [src/API/axiosConfig.js](src/API/axiosConfig.js) as the `baseURL` for all API calls.
-
-## Installation and Local Setup
+## Installation & Running
 
 ```bash
-git clone <repository-url>
-cd client
+git clone https://github.com/st0533168114-dev/photography-courses-client.git
+cd photography-courses-client
 npm install
 npm run dev
 ```
 
-The application will run at the address displayed by Vite in the terminal (usually `http://localhost:5173`).
+The application will run at the address shown in the terminal (usually `http://localhost:5173`).
 
-## Building for Production
+## Environment Variables
+
+Create a `.env` file with the server address:
+
+```
+VITE_API_URL=http://localhost:1234
+```
+
+## Main Structure
+
+```
+src/
+├── pages/        # Site pages
+├── components/    # Reusable components
+├── layout/        # Header and Footer
+├── API/           # Axios calls to the server
+├── redux/         # Store and slices
+└── CSS/           # Modular styling
+```
+
+## Build for Deployment
 
 ```bash
 npm run build
 ```
 
-This command generates an optimized, minified production build in the `dist/` directory, ready for deployment on a static server.
+## Related Repository
+- [Photography Courses Server (Node/Express)](https://github.com/st0533168114-dev/photography-courses-server)
