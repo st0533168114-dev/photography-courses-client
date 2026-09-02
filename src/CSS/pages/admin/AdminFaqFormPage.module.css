@@ -12,10 +12,16 @@
   text-align: center;
 }
 
+.loading {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
 .error {
-  background-color: #fee;
+  background-color: var(--color-error-bg);
   color: var(--color-error);
-  border: 1px solid var(--color-error);
+  border: var(--border-width) solid var(--color-error);
   border-radius: var(--radius-md);
   padding: var(--space-3);
   margin-bottom: var(--space-4);
@@ -40,9 +46,10 @@
   font-size: var(--font-size-base);
 }
 
-.formGroup input {
+.formGroup input,
+.formGroup textarea {
   padding: var(--space-3);
-  border: 1px solid var(--color-border);
+  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
   color: var(--color-text);
@@ -51,7 +58,13 @@
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.formGroup input:focus {
+.formGroup textarea {
+  resize: vertical;
+  line-height: var(--line-height-normal);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-focus-ring);
@@ -96,5 +109,5 @@
 }
 
 .cancelBtn:hover {
-  background-color: #ddd;
+  background-color: var(--color-border-strong);
 }
