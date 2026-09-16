@@ -151,7 +151,7 @@ client/
 
 | שדה | סוג | תיאור |
 |-----|-----|-------|
-| cart | Object / null | עגלת הקניות (כולל courseList ו-subtotal) |
+| cart | Object / null | עגלת הקניות כפי שחזרה מהשרת (כולל courseList ו-subtotal). כל פריט כולל גם `isAvailable` ו-`previousPrice` (רק אם המחיר השתנה מאז ההוספה) — שניהם מחושבים בשרת, ו-`subtotal` סופר זמינים בלבד |
 | isLoading | boolean | |
 | error | Object / null | |
 
@@ -214,7 +214,8 @@ Authorization: Bearer <token מ-localStorage>
 ### 7.4 ShoppingCartPage
 מציג את פריטי העגלה (`CourseCartItem`) וסכום לתשלום.  
 כפתור `PurchaseButton` מפעיל יצירת הזמנה ותשלום.  
-אם העגלה ריקה – מציג הודעה מתאימה.
+אם העגלה ריקה – מציג הודעה מתאימה.  
+אם יש בעגלה קורס לא זמין – הכפתור חסום ומוצג הסבר. אותה חסימה קיימת גם בכפתור יצירת ההזמנה ב-`CreateOrderPage`.
 
 ### 7.5 LoginPage
 טופס שם משתמש + סיסמה.  
@@ -244,7 +245,7 @@ Authorization: Bearer <token מ-localStorage>
 | `Header` | תפריט ניווט עם NavLink לכל העמודים |
 | `Footer` | תחתית האתר |
 | `CourseCard` | כרטיס קורס – תמונה, שם, מחיר, כפתור הוסף לעגלה |
-| `CourseCartItem` | פריט בעגלה – שם, מחיר, כפתור הסרה |
+| `CourseCartItem` | פריט בעגלה – שם, מחיר, כפתור הסרה. מסמן קורס לא זמין ומציג "המחיר עודכן" כשיש `previousPrice` |
 | `MyCourseItem` | קורס שנרכש – מוצג בדף "הקורסים שלי" |
 | `CategoryItem` | כרטיס קטגוריה – לחיצה מנווטת לקורסים |
 | `AddToCartButton` | כפתור הוספה לעגלה – שולח `addToCart` thunk |
