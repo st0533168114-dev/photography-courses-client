@@ -220,7 +220,8 @@ Authorization: Bearer <token מ-localStorage>
 ### 7.5 LoginPage
 טופס שם משתמש + סיסמה.  
 שולח `loginUser` thunk.  
-אם המשתמש כבר מחובר (`isLoggedIn`) – מנתב אוטומטית לדף הבית.
+אם המשתמש כבר מחובר (`isLoggedIn`) – מנתב אוטומטית לעמוד שב-`location.state.from`, או לדף הבית אם אין.  
+אם הגיע עם `location.state.message` (למשל מניסיון הוספה לסל) – ההודעה מוצגת מתחת לכותרת.
 
 ### 7.6 SignUpPage
 טופס הרשמה (firstName, lastName, email, userName, password, phoneNumber).  
@@ -248,7 +249,7 @@ Authorization: Bearer <token מ-localStorage>
 | `CourseCartItem` | פריט בעגלה – שם, מחיר, כפתור הסרה. מסמן קורס לא זמין ומציג "המחיר עודכן" כשיש `previousPrice` |
 | `MyCourseItem` | קורס שנרכש – מוצג בדף "הקורסים שלי" |
 | `CategoryItem` | כרטיס קטגוריה – לחיצה מנווטת לקורסים |
-| `AddToCartButton` | כפתור הוספה לעגלה – שולח `addToCart` thunk |
+| `AddToCartButton` | כפתור הוספה לעגלה – שולח `addToCart` thunk. בקורס שנרכש מוצג "נרכש" וחסום. שגיאות (כבר בסל, כבר נרכש, לא זמין) מוצגות כבועה קטנה מעל הכפתור; משתמשת לא מחוברת מועברת ל-`/login` עם הודעה ועם העמוד לחזרה |
 | `DeleteFromCartButton` | כפתור הסרה מהעגלה – שולח `removeFromCart` thunk |
 | `PurchaseButton` | כפתור קנייה – יוצר הזמנה ותשלום |
 | `WellcomeSection` | אזור פתיחה בדף הבית |
